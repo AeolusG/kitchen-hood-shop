@@ -11,37 +11,27 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import Status from "~/utils/alertStatus";
 
-export default {
-  props: {
-    status: {
-      type: String,
-      default: null,
-    },
+const props = defineProps<{
+  status?: string
+  text?: string
+}>()
 
-    text: {
-      type: String,
-      default: null,
-    },
-  },
-  emits: ["close-alert"],
+const emit = defineEmits(['close-alert'])
 
-  methods: {
-    closeAlert() {
-      this.$emit("close-alert");
-    },
-  },
-
-  computed: {
-    setBackground() {
-      return this.status === Status.SUCCESS
+const setBackground = computed(() => {
+      
+      return props.status === Status.SUCCESS
         ? "background-success"
         : "background-error";
-    },
-  },
-};
+})
+
+function closeAlert() {
+     emit("close-alert");
+}
+
 </script>
 
 <style>

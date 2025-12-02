@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "nuxt-swiper"],
+  modules: ["@pinia/nuxt", "nuxt-swiper", "@nuxt/test-utils/module"],
   pinia: {
     storesDirs: ["./stores/**", "./custom-folder/stores/**"],
   },
